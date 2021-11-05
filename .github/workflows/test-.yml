@@ -16,7 +16,9 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Initialising the terraform
-      run: terraform init
+      run: |
+       cd dir1
+       terraform init
 
     - name: Planning stage for the terraform
       run: terraform plan
