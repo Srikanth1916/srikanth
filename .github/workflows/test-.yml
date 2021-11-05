@@ -33,7 +33,6 @@ jobs:
     defaults:
       run:
         shell: bash
-		
     steps:
     - name: Destroying the infrastructure
       run: terraform destroy --auto-approve
