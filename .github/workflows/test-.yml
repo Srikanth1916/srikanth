@@ -21,10 +21,14 @@ jobs:
        terraform init
 
     - name: Planning stage for the terraform
-      run: terraform plan
+      run: |
+       cd dir1
+       terraform plan
 
     - name: Applying the changes
-      run: terraform apply --auto-approve
+      run: |
+       cd dir1
+       terraform apply --auto-approve
 
 
   Destroyterraform:
@@ -37,4 +41,6 @@ jobs:
     
     steps:
       - name: Destroying the infrastructure
-        run: terraform destroy --auto-approve
+        run: | 
+          cd dir1
+          terraform destroy --auto-approve
