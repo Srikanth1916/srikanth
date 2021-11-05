@@ -1,9 +1,7 @@
 name: 'Terraform'
 
 on:
-  push:
-    branches:
-    - master
+  workflow_dispatch
 
 jobs:
   terraform:
@@ -25,3 +23,7 @@ jobs:
 
     - name: Applying the changes
       run: terraform apply --auto-approve
+    
+    - name: Destroying the changes
+      run: terraform destroy --auto-approve
+      uses: manual
