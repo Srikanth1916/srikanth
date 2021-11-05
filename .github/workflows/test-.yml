@@ -1,7 +1,9 @@
 name: 'Terraform'
 
 on:
-  workflow_dispatch
+  push:
+    branches:
+    - master
 
 jobs:
   terraform:
@@ -24,8 +26,8 @@ jobs:
     - name: Applying the changes
       run: terraform apply --auto-approve
 
-jobs:
-  terraform:
+
+  Destroyterraform:
     name: 'Destroying the Terraform'
     runs-on: demo
     defaults:
@@ -34,5 +36,5 @@ jobs:
 		
     steps:
     - name: Destroying the infrastructure
-      uses: terraform destroy --auto-approve	
+      run: terraform destroy --auto-approve
 	  
