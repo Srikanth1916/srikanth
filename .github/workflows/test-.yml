@@ -1,1 +1,21 @@
-ss
+name: 'Terraform'
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  terraform:
+    name: 'Terraform'
+    runs-on: demo
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Terraform Init
+      run: terraform init
