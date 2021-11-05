@@ -1,7 +1,7 @@
 provider "aws" {
   region = "us-east-2"
-  access_key= "AKIASJLBDMGRYO22WQVS"
-  secret_key = "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"
+  AWS_ACCESS_KEY_ID = "AKIASJLBDMGRYO22WQVS"
+  AWS_SECRET_ACCESS_KEY = "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"
 }
 
 #Creating the ec2 instance using terraform:
