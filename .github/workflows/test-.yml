@@ -36,4 +36,3 @@ jobs:
     steps:
     - name: Destroying the infrastructure
       run: terraform destroy --auto-approve
-	  
