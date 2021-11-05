@@ -14,8 +14,14 @@ jobs:
         shell: bash
 
     steps:
-    - name: Checkout
+    - name: repo Checkout
       uses: actions/checkout@v2
 
-    - name: Terraform Init
+    - name: Initialising the terraform
       run: terraform init
+
+    - name: Planning stage for the terraform
+      run: terraform plan
+
+    - name: Applying the changes
+      run: terraform plan
