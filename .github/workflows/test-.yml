@@ -27,7 +27,7 @@ jobs:
          
     - name: Initialising the terraform
       run: |
-         cd dir1
+         cd env/aws/test/eks-infra-modules
          terraform init
 
     - name: Planning stage for the terraform
@@ -39,3 +39,10 @@ jobs:
       run: |
          cd dir1
          terraform apply --auto-approve
+
+    - name: Applying the changes
+      run: |
+         cd dir1
+         terraform destroy --auto-approve
+    environment:
+        name: tf_destroy
