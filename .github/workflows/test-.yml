@@ -6,41 +6,25 @@ on:
 jobs:
   terraform:
     name: 'Terraform'
-    runs-on: demo
+    runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash
 
     steps:
-    - name: repo Checkout
+    - name: Repo Checkout
       uses: actions/checkout@v2
-
+	  
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v1
+      with:
+         terraform_version: 0.12.25
+         
     - name: Initialising the terraform
-      run: |
-       cd dir1
-       terraform init
+      run: terraform init
 
     - name: Planning stage for the terraform
-      run: |
-       cd dir1
-       terraform plan
+      run: terraform plan
 
     - name: Applying the changes
-      run: |
-       cd dir1
-       terraform apply --auto-approve
-
-
-  Destroyterraform:
-    name: 'Destroying the Terraform'
-    runs-on: demo
-    defaults:
-      run:
-        shell: bash
-    needs: terraform
-    
-    steps:
-      - name: Destroying the infrastructure
-        run: | 
-          cd dir1
-          terraform destroy --auto-approve
+      run: terraform apply --auto-approve
