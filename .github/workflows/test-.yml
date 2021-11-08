@@ -21,15 +21,21 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-2
-              
+
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
          
     - name: Initialising the terraform
-      run: terraform init
+      run: |
+         cd env/aws/test/eks-infra-modules
+         terraform init
 
     - name: Planning stage for the terraform
-      run: terraform plan
+      run: |
+         cd env/aws/test/eks-infra-modules
+         terraform plan
 
     - name: Applying the changes
-      run: terraform apply --auto-approve
+      run: |
+         cd env/aws/test/eks-infra-modules
+         terraform apply --auto-approve
