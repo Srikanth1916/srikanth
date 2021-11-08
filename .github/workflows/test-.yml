@@ -44,8 +44,8 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
           name: tf_apply
-          path: dir1
-		  
+          path: dir1/tf_apply
+	  
   terraform_destroy:
     name: 'Terraform destroy'
     runs-on: ubuntu-latest
