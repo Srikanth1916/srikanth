@@ -27,7 +27,7 @@ jobs:
          
     - name: Initialising the terraform
       run: |
-         cd env/aws/test/eks-infra-modules
+         cd dir1
          terraform init
 
     - name: Planning stage for the terraform
@@ -38,9 +38,29 @@ jobs:
     - name: Applying the changes
       run: |
          cd dir1
-         terraform apply --auto-approve
+         terraform apply --auto-approve -out "tf_plan" -input=false
 
-    - name: Applying the changes
+    - name: Upload TF apply
+      uses: actions/upload-artifact@v2
+      with:
+          name: tf_apply
+          path: tf_apply
+		  
+  terraform_destroy:
+    name: 'Terraform destroy'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+    - name: Download TF Plan
+      uses: actions/download-artifact@v2
+      with:
+        name: tf_apply
+        path: dir1
+
+    - name: Destroying the changes
       run: |
          cd dir1
          terraform destroy --auto-approve
