@@ -38,7 +38,7 @@ jobs:
     - name: Applying the changes
       run: |
          cd dir1
-         terraform apply --auto-approve -out "tf_plan" -input=false
+         terraform apply --auto-approve -out "tf_apply" -input=false
 
     - name: Upload TF apply
       uses: actions/upload-artifact@v2
