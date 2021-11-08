@@ -44,7 +44,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
           name: tf_apply
-          path: tf_apply
+          path: dir1
 		  
   terraform_destroy:
     name: 'Terraform destroy'
