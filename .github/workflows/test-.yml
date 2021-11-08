@@ -27,15 +27,15 @@ jobs:
          
     - name: Initialising the terraform
       run: |
-         cd env/aws/test/eks-infra-modules
+         cd dir1
          terraform init
 
     - name: Planning stage for the terraform
       run: |
-         cd env/aws/test/eks-infra-modules
+         cd dir1
          terraform plan
 
     - name: Applying the changes
       run: |
-         cd env/aws/test/eks-infra-modules
+         cd dir1
          terraform apply --auto-approve
