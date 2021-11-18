@@ -27,8 +27,8 @@ jobs:
     - name: Setup python
       uses: actions/setup-python@v2
 
-    - name : Installing and configuring the trufflehog
-	  command : |
-            pip install trufflehog* -y
-			sleep 5
-			truffleHog --regex --entropy=False $GIT_URL
+    - name: Installing and configuring the trufflehog
+      run: |
+        pip install trufflehog* -y
+        sleep 5
+        truffleHog --regex --entropy=False $GIT_URL
