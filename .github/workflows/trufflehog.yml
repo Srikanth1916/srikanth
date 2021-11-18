@@ -29,6 +29,6 @@ jobs:
 
     - name: Installing and configuring the trufflehog
       run: |
-        pip install trufflehog* -y
+        pip install trufflehog
         sleep 5
         truffleHog --regex --entropy=False $GIT_URL
