@@ -22,6 +22,7 @@ jobs:
     - name: checking whether the tags are valid or not
       run: |
        sudo apt-get install -y dos2unix
+       git tag -l
        chmod 777 shell.sh
        dos2unix shell.sh
        pwd
