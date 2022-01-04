@@ -1,4 +1,6 @@
+#!/bin/bash
 git tag -l > file1
+echo file1
 if grep github.ref file1
 then
    echo "Match found and good to proceed with the next steps"
