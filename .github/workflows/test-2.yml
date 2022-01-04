@@ -19,6 +19,9 @@ jobs:
     - name: git repo Checkout
       uses: actions/checkout@v2
 
+    - name: find out the tags
+      run: git tag -l
+
     - name: checking whether the tags are valid or not
       run: |
        sudo apt-get install -y dos2unix
