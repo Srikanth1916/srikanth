@@ -27,6 +27,7 @@ jobs:
        pwd
        ls
        ./shell.sh
+       git tag -l
 
     - name: Setup Java JDK
       uses: actions/setup-java@v2
