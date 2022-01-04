@@ -18,6 +18,9 @@ jobs:
     steps:
     - name: git repo Checkout
       uses: actions/checkout@v2
+   
+    - name: git tag software
+      uses: mathieudutour/github-tag-action@v6.0
 
     - name: find out the tags
       run: git tag -l
